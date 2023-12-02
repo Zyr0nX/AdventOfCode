@@ -8,8 +8,4 @@
         <RootNamespace>AdventOfCode2023</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Year2023\" />
-    </ItemGroup>
-
 </Project>
