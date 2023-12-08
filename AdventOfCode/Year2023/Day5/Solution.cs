@@ -124,12 +124,12 @@ namespace AdventOfCode2023.Year2023.Day5
                 .Select(group => (group.ElementAt(0).Value, group.ElementAtOrDefault(1)?.Value));
 
             var seedToSoilMapRaw = lines.GetRange(lines.IndexOf("seed-to-soil map:") + 1, lines.IndexOf("soil-to-fertilizer map:") - lines.IndexOf("seed-to-soil map:") - 1).Select(line => line.Split(" ").Select(long.Parse).ToArray());
-            var soilToFertilizerMapRaw = lines.GetRange(lines.IndexOf("soil-to-fertilizer map:") + 1, lines.IndexOf("fertilizer-to-water map:") - lines.IndexOf("soil-to-fertilizer map:") - 1);
-            var fertilizerToWaterMapRaw = lines.GetRange(lines.IndexOf("fertilizer-to-water map:") + 1, lines.IndexOf("water-to-light map:") - lines.IndexOf("fertilizer-to-water map:") - 1);
-            var waterToLightMapRaw = lines.GetRange(lines.IndexOf("water-to-light map:") + 1, lines.IndexOf("light-to-temperature map:") - lines.IndexOf("water-to-light map:") - 1);
-            var lightToTemperatureMapRaw = lines.GetRange(lines.IndexOf("light-to-temperature map:") + 1, lines.IndexOf("temperature-to-humidity map:") - lines.IndexOf("light-to-temperature map:") - 1);
-            var temperatureToHumidityMapRaw = lines.GetRange(lines.IndexOf("temperature-to-humidity map:") + 1, lines.IndexOf("humidity-to-location map:") - lines.IndexOf("temperature-to-humidity map:") - 1);
-            var humidityToLocationMapRaw = lines.GetRange(lines.IndexOf("humidity-to-location map:") + 1, lines.Count - lines.IndexOf("humidity-to-location map:") - 1);
+            var soilToFertilizerMapRaw = lines.GetRange(lines.IndexOf("soil-to-fertilizer map:") + 1, lines.IndexOf("fertilizer-to-water map:") - lines.IndexOf("soil-to-fertilizer map:") - 1).Select(line => line.Split(" ").Select(long.Parse).ToArray());
+            var fertilizerToWaterMapRaw = lines.GetRange(lines.IndexOf("fertilizer-to-water map:") + 1, lines.IndexOf("water-to-light map:") - lines.IndexOf("fertilizer-to-water map:") - 1).Select(line => line.Split(" ").Select(long.Parse).ToArray());
+            var waterToLightMapRaw = lines.GetRange(lines.IndexOf("water-to-light map:") + 1, lines.IndexOf("light-to-temperature map:") - lines.IndexOf("water-to-light map:") - 1).Select(line => line.Split(" ").Select(long.Parse).ToArray());
+            var lightToTemperatureMapRaw = lines.GetRange(lines.IndexOf("light-to-temperature map:") + 1, lines.IndexOf("temperature-to-humidity map:") - lines.IndexOf("light-to-temperature map:") - 1).Select(line => line.Split(" ").Select(long.Parse).ToArray()); ;
+            var temperatureToHumidityMapRaw = lines.GetRange(lines.IndexOf("temperature-to-humidity map:") + 1, lines.IndexOf("humidity-to-location map:") - lines.IndexOf("temperature-to-humidity map:") - 1).Select(line => line.Split(" ").Select(long.Parse).ToArray());
+            var humidityToLocationMapRaw = lines.GetRange(lines.IndexOf("humidity-to-location map:") + 1, lines.Count - lines.IndexOf("humidity-to-location map:") - 1).Select(line => line.Split(" ").Select(long.Parse).ToArray());
 
             var listMin = new List<long>();
             Parallel.ForEach(pairsOfSeeds, pair =>
